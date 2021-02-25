@@ -96,14 +96,6 @@ const main = async () => {
   httpServer.listen(process.env.PORT, () =>
     console.log(`Server started on PORT  : ${process.env.PORT}`)
   );
-
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => {
-      console.log("TERMINATING CONNECTION");
-      httpServer.close();
-    });
-  }
 };
 
 main().catch((err) => console.log(err));
